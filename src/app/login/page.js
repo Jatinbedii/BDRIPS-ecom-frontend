@@ -30,6 +30,7 @@ function Page() {
     setloading(true)
     const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/api/login`,{email,password},{ withCredentials: true })
     if(res.status===201){
+        Cookies.set('jwt2','value',{expires:1})
         setLogin(true);
         setuserinfo(res.data);
         setnumberofitems(res.data.cart.length);
