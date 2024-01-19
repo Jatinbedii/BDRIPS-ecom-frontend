@@ -21,8 +21,6 @@ function Page() {
 
   useEffect(()=>{
     if(Cookies.get('jwt')){
-      Cookies.remove('jwt');
-      setLogin(false);
       router.push('/')
     }
   },[]);
