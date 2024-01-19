@@ -30,10 +30,10 @@ function Page() {
     setloading(true)
     const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/api/login`,{email,password},{ withCredentials: true })
     if(res.status===201){
-        Cookies.set('jwt2','value',{expires:1})
+        Cookies.set('jwt',res.data.token,{expires:1})
         setLogin(true);
-        setuserinfo(res.data);
-        setnumberofitems(res.data.cart.length);
+        setuserinfo(res.data.user);
+        setnumberofitems(res.data.user.cart.length);
         setloading(false)
         router.push('/')
     }else{
