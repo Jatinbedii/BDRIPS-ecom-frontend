@@ -58,7 +58,7 @@ async function fetchdata(){
 
   useEffect(()=>{
     fetchdata()
-  })
+  },[])
 
   function logouthandler(){
     Cookies.remove('jwt');

@@ -15,7 +15,7 @@ function page() {
     if(cookie){
 
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/removefromcart`,{id,jwt:cookie});
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/api/removefromcart`,{id,jwt:cookie});
 
       if(res.status==201){
         fetchData();
